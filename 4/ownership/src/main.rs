@@ -16,5 +16,21 @@ fn main() {
     // This is called a 'move' (invalidates s1)
    
     // Clone
-    let s3 = s2.clone();
+    let _s3 = s2.clone();
+
+    let x1 = 5;
+    let _x2 = x1; // This is a copy NOT a move. 
+    // Rust allows the int type to do this because of a specific trait.
+    
+
+    let s = String::from("ownership");
+    takes_ownership(s);
+    
+    // println!("{}", s);
+    // This generates error because passing a var into a func moves the value
+    // and the variable is then dropped.
+
+    fn takes_ownership(some_string: String) {
+        println!("{}", some_string);
+    }
 }
